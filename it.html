@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For school IT teams · Timetable Sync for ManageBac</title>
+<meta name="description" content="How a Google Workspace admin allows Timetable Sync for ManageBac for staff and students.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bar"></div>
+<header>
+  <a class="brand" href="./"><img src="logo.png" alt="">Timetable Sync for ManageBac</a>
+  <nav><a href="./">Home</a><a href="privacy.html">Privacy</a><a href="it.html">For school IT teams</a></nav>
+</header>
+<main>
+<h1>For school IT teams</h1>
+<p class="lead">How to allow Timetable Sync for ManageBac for your staff and students in the Google Admin console. It takes a couple of minutes.</p>
+
+<h2>Why you're seeing this</h2>
+<p>Timetable Sync for ManageBac is a Chrome extension that copies a user's class timetable from ManageBac into their own Google Calendar. It signs in with Google and asks for one permission: Google Calendar events.</p>
+<p>Many schools restrict third-party apps, and Google Workspace for Education blocks unconfigured third-party apps for users under 18 by default. Until an admin marks the app as <strong>Trusted</strong>, affected users see <em>"Service has been disabled for this account"</em> from Google, or the extension's message <em>"Your school's Google admin hasn't allowed Timetable Sync for ManageBac to use Google Calendar yet."</em></p>
+
+<h2>The app's details</h2>
+<table>
+  <tr><th>App name</th><td>Timetable Sync for ManageBac</td></tr>
+  <tr><th>OAuth client ID</th><td><div class="copy"><span class="id" id="client-id">593685526866-a6o57s63dr31gflfoo2ruknf4dlfgbu7.apps.googleusercontent.com</span><button type="button" data-copy="client-id">Copy</button></div></td></tr>
+  <tr><th>Chrome extension ID</th><td><div class="copy"><span class="id" id="ext-id">kdclenfhfecnfgkbbkhnidcdflefhpmg</span><button type="button" data-copy="ext-id">Copy</button></div></td></tr>
+  <tr><th>Google permission (scope)</th><td><code>https://www.googleapis.com/auth/calendar.events.owned</code>: see, create, change and delete events on Google calendars the user owns</td></tr>
+  <tr><th>Other Chrome permissions</th><td>Storage (settings, on the computer only), Identity (Google sign-in through Chrome), and access to <code>*.managebac.com</code>, <code>.eu</code> and <code>.cn</code> pages</td></tr>
+</table>
+
+<h2>Mark the app as Trusted</h2>
+<p>You need a Google Workspace super admin, or an admin with Security settings rights.</p>
+<ol>
+  <li>Go to <a href="https://admin.google.com">admin.google.com</a> and sign in with your admin account.</li>
+  <li>Open the menu (☰), then go to <strong>Security</strong> &gt; <strong>Access and data control</strong> &gt; <strong>API controls</strong>.</li>
+  <li>Under <strong>App access control</strong>, click <strong>Manage Third-Party App Access</strong>.</li>
+  <li>Click <strong>Configure new app</strong>.</li>
+  <li>Paste the OAuth client ID above into the search box and click <strong>Search</strong>. Click <strong>Select</strong> next to <strong>Timetable Sync for ManageBac</strong>.</li>
+  <li>Tick the client ID and click <strong>Select</strong>.</li>
+  <li>Choose who it applies to: your whole domain, or the organizational units for your staff and students. Click <strong>Continue</strong>.</li>
+  <li>Choose <strong>Trusted: Can access all Google services</strong>, click <strong>Continue</strong>, then <strong>Finish</strong>.</li>
+</ol>
+<p>The change usually takes effect within minutes, and can take up to 24 hours. Users then sync with no further action from you.</p>
+<div class="panel warn"><strong>If the app isn't found by its client ID</strong>, nobody in your domain has tried to sign in yet, and it may not appear in the list. Ask one staff member to click <em>Sync to Google Calendar</em> once (it will be blocked), then search again.</div>
+
+<h2>Optional: install it for everyone</h2>
+<p>To put the extension in users' Chrome without them installing it: in the Admin console go to <strong>Devices</strong> &gt; <strong>Chrome</strong> &gt; <strong>Apps &amp; extensions</strong> &gt; <strong>Users &amp; browsers</strong>, choose the organizational unit, click the yellow <strong>+</strong> button &gt; <strong>Add Chrome app or extension by ID</strong>, paste the Chrome extension ID above, and set it to <strong>Force install</strong> or <strong>Allow install</strong>. This is separate from the Trusted step: users still need the app to be Trusted to connect Google Calendar.</p>
+
+<h2>What the extension can and can't do</h2>
+<ul>
+  <li>It runs entirely in the user's browser. There is no server, and the developer never receives timetables, calendars or account details.</li>
+  <li>It only adds, updates and removes the class events it created itself (tagged with a private extended property) in the user's primary calendar. It never reads, changes or deletes other events, never sends invitations, and adds no reminders.</li>
+  <li>It reads only the user's timetable pages on ManageBac, using their existing ManageBac session.</li>
+  <li>Users can remove all synced classes at any time with <strong>Remove all</strong>, and disconnect with <strong>Sign out</strong>.</li>
+</ul>
+<p>Full details are in the <a href="privacy.html">privacy policy</a>.</p>
+
+<h2>Before you've trusted it</h2>
+<p>Users can still use <strong>Download .ics</strong> on their ManageBac timetable page. It saves the timetable as a calendar file they can import into Google Calendar without connecting the extension. Imported classes don't update automatically.</p>
+
+<h2>Questions</h2>
+<p>Email <a href="mailto:hello@qurious.im">hello@qurious.im</a>.</p>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    navigator.clipboard.writeText(document.getElementById(b.dataset.copy).textContent).then(function () {
+      b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500);
+    });
+  });
+});
+</script>
+</main>
+<footer>
+  Timetable Sync for ManageBac is an independent extension. It is not made by, endorsed by or connected with Faria Education Group (ManageBac) or Google.
+  Contact: <a href="mailto:hello@qurious.im">hello@qurious.im</a> · <a href="privacy.html">Privacy policy</a> · <a href="it.html">For school IT teams</a>
+</footer>
+</body>
+</html>

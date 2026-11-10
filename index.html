@@ -4,19 +4,53 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Timetable Sync for ManageBac</title>
+<meta name="description" content="A free Chrome extension that copies your ManageBac class timetable into your Google Calendar with one click.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  body { margin: 0; font-family: Figtree, sans-serif; background: #fff; color: #003A63; }
-  main { max-width: 640px; margin: 15vh auto; padding: 0 16px; }
-  h1 { margin: 0 0 8px; } p { color: #333; }
-  .bar { height: 6px; background: linear-gradient(90deg, #003A63, #00958F, #EEB111, #98002E); }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="bar"></div>
+<header>
+  <a class="brand" href="./"><img src="logo.png" alt="">Timetable Sync for ManageBac</a>
+  <nav><a href="./">Home</a><a href="privacy.html">Privacy</a><a href="it.html">For school IT teams</a></nav>
+</header>
 <main>
-  <h1>Timetable Sync for ManageBac</h1>
-  <p>A Chrome extension that copies your ManageBac class timetable into your Google Calendar. This page is coming soon.</p>
+<h1>Your ManageBac timetable, in your Google Calendar</h1>
+<p class="lead">Timetable Sync for ManageBac is a free Chrome extension for students and teachers. One click copies your classes from ManageBac into your own Google Calendar, and keeps them up to date when rooms, times or classes change.</p>
+<p><a class="button" href="https://chromewebstore.google.com/detail/kdclenfhfecnfgkbbkhnidcdflefhpmg">Add to Chrome</a><a class="button secondary" href="it.html">For school IT teams</a></p>
+
+<div class="features">
+  <div><strong>One click</strong>Open your timetable on ManageBac and click <em>Sync to Google Calendar</em>. You see a preview of every class before anything is added.</div>
+  <div><strong>Stays up to date</strong>Sync again any time. Room changes, time changes and cancelled classes are updated; nothing is added twice.</div>
+  <div><strong>Leaves your own events alone</strong>The extension only ever changes the classes it added itself. Your personal events are never read, changed or deleted.</div>
+</div>
+
+<img class="shot" src="screenshot-preview.png" alt="The preview of classes to sync, shown on a ManageBac timetable page (made-up example)">
+
+<h2>How it works</h2>
+<ol>
+  <li>Install the extension from the Chrome Web Store, in Chrome signed in to your school Google account.</li>
+  <li>Open your timetable on ManageBac. A <strong>Sync to Google Calendar</strong> button appears next to ManageBac's own buttons.</li>
+  <li>The first time, Google asks you to allow the extension to add events to your calendar.</li>
+  <li>Check the preview and click <strong>Sync these classes</strong>. Your classes appear in Google Calendar, from today to the end of the school year.</li>
+</ol>
+<p>Settings (words to skip such as "Lunch", event colour, time zone, end of the school year) and <strong>Remove all</strong> are in the extension's toolbar button. Prefer not to sign in to Google? <strong>Download .ics</strong> saves your timetable as a calendar file you can import anywhere.</p>
+
+<h2>Private by design</h2>
+<p>Everything happens on your own computer. There is no server and no account to create. Your timetable goes straight from ManageBac to your Google Calendar and nowhere else. Read the <a href="privacy.html">privacy policy</a>.</p>
+
+<h2>Can't sign in?</h2>
+<p>If the extension says your school's Google admin hasn't allowed it, or Google says "Service has been disabled for this account", your school restricts third-party apps. Send your IT team the page <a href="it.html">For school IT teams</a>: it takes them a couple of minutes to allow it. Until then, <strong>Download .ics</strong> still works.</p>
+
+<h2>Help</h2>
+<p>Use <strong>Report a problem</strong> in the extension, or email <a href="mailto:hello@qurious.im">hello@qurious.im</a>.</p>
 </main>
+<footer>
+  Timetable Sync for ManageBac is an independent extension. It is not made by, endorsed by or connected with Faria Education Group (ManageBac) or Google.
+  Contact: <a href="mailto:hello@qurious.im">hello@qurious.im</a> · <a href="privacy.html">Privacy policy</a> · <a href="it.html">For school IT teams</a>
+</footer>
 </body>
 </html>
